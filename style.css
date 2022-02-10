@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.chartContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 90%;
+    height: 160px;
+    background-color: antiquewhite;
+    margin: 30px auto;
+    align-items: flex-end;
+}
+
+.bar {
+    width: inherit;
+    height: 0%;
+    background-color:rgb(189, 43, 123);
+    border: 1px solid black;
+    margin: 0px 1px;
+}
