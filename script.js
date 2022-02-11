@@ -17,24 +17,24 @@ function init() {
         chartContainer.appendChild(chartBar);
     }
 
-    // for (let i = 0; i < 40; i++) {
-    //     model.push(getNumberOfCustomers());
-    // }
+    for (let i = 0; i < 40; i++) {
+        model.push(getNumberOfCustomers());
+    }
 
     loop();
 }
 
 function loop() {
 
-    model.push(getNumberOfCustomers());
     displayData();
     modifyModel();
-    if (i < 40) {
-        i++;
-        setTimeout(loop, 500);
-    } else {
-        console.log('Loop finished');
-    }
+    // if (i < 60) {
+    //     i++;
+    //     setTimeout(loop, 250);
+    // } else {
+    //     console.log('Loop finished');
+    // }
+    setTimeout(loop, 500);
 }
 
 function getNumberOfCustomers() {
@@ -43,7 +43,7 @@ function getNumberOfCustomers() {
 
 function displayData() {
     let barsArray = document.querySelectorAll('.bar');
-    // console.log(barsArray);
+    console.log('display data is called');
 
     for (let i = 0; i < barsArray.length; i++) {
         // console.log(barsArray[i]);
@@ -54,7 +54,14 @@ function displayData() {
 }
 
 function modifyModel() {
-    console.log('modifying model');
-    model.shift(0);
-    model.push(getNumberOfCustomers());
+    // console.log('modifying model');
+    // model.shift(0);
+    // model.push(getNumberOfCustomers());
+
+    if (model.length < 40) {
+        model.push(getNumberOfCustomers());
+    } else {
+        model.shift(0);
+        model.push(getNumberOfCustomers());
+    }
 }
