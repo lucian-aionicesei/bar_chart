@@ -20,7 +20,7 @@ function init() {
 function loop() {
     displayData();
     modifyModel();
-    setTimeout(loop, 500);
+    setTimeout(loop, 1000);
 }
 
 function getNumberOfCustomers() {
