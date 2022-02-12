@@ -3,11 +3,8 @@
 window.addEventListener('load', init);
 
 const model = [];
-let i = 0;
 
 function init() {
-
-    i = 0;
 
     let chartContainer = document.querySelector('.chartContainer');
 
@@ -17,23 +14,12 @@ function init() {
         chartContainer.appendChild(chartBar);
     }
 
-    for (let i = 0; i < 40; i++) {
-        model.push(getNumberOfCustomers());
-    }
-
     loop();
 }
 
 function loop() {
-
     displayData();
     modifyModel();
-    // if (i < 60) {
-    //     i++;
-    //     setTimeout(loop, 250);
-    // } else {
-    //     console.log('Loop finished');
-    // }
     setTimeout(loop, 500);
 }
 
@@ -42,22 +28,19 @@ function getNumberOfCustomers() {
 }
 
 function displayData() {
-    let barsArray = document.querySelectorAll('.bar');
-    console.log('display data is called');
+    let chartContainer = document.querySelector('.chartContainer');
+    let firstBar = document.querySelector('.bar');
+    firstBar.remove(0);
 
-    for (let i = 0; i < barsArray.length; i++) {
-        // console.log(barsArray[i]);
-        barsArray[i].style.height = (model[i] * 100) / 32 + '%';
-        console.log('taking data and displaying');
-    }
+    // reate new element and append
+    let chartBar = document.createElement('div');
+    chartBar.classList.add('bar');
+    chartBar.style.height = (model[model.length - 1] * 100) / 32 + '%';
+    chartContainer.appendChild(chartBar);
 
 }
 
 function modifyModel() {
-    // console.log('modifying model');
-    // model.shift(0);
-    // model.push(getNumberOfCustomers());
-
     if (model.length < 40) {
         model.push(getNumberOfCustomers());
     } else {
